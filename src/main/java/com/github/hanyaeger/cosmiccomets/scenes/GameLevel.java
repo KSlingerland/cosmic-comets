@@ -21,6 +21,6 @@ public class GameLevel extends DynamicScene {
 
     @Override
     public void setupEntities() {
-        addEntity(new Planet(new Coordinate2D(getWidth() / 2, getHeight() / 2), cosmicComets));
+        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64), cosmicComets));
     }
 }

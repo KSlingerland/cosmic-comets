@@ -12,31 +12,31 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class StartButton extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
-
+public class QuitButton extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
     private final CosmicComets cosmicComets;
 
-    public StartButton(Coordinate2D initialLocation, CosmicComets cosmicComets) {
-        super(initialLocation, "Start Mission");
+    public QuitButton(Coordinate2D initialPosition, CosmicComets cosmicComets) {
+        super(initialPosition, "Quit game");
         this.cosmicComets = cosmicComets;
-        setFill(Color.WHITE);
+
+        setFill(Color.ORANGE);
         setFont(Font.font("Roboto", FontWeight.BOLD, 32));
     }
 
     @Override
-    public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        cosmicComets.setActiveScene(1);
+    public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D) {
+        cosmicComets.quit();
     }
 
     @Override
     public void onMouseEntered() {
-        setFill(Color.GREY);
+        setFill(Color.LIGHTYELLOW);
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited() {
-        setFill(Color.WHITE);
+        setFill(Color.ORANGE);
         setCursor(Cursor.DEFAULT);
     }
 }

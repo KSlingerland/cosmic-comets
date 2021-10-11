@@ -1,4 +1,4 @@
-module waterworld {
+module cosmiccomets {
     requires hanyaeger;
 
     exports com.github.hanyaeger.cosmiccomets;
