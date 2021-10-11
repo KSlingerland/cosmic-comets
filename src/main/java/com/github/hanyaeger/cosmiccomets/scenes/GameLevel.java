@@ -3,7 +3,9 @@ package com.github.hanyaeger.cosmiccomets.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
-import com.github.hanyaeger.cosmiccomets.entities.Planet;
+import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
+import com.github.hanyaeger.cosmiccomets.entities.satillitebelt.SatelliteBelt;
+import com.github.hanyaeger.cosmiccomets.entities.satillitebelt.satillite.Satillite;
 
 public class GameLevel extends DynamicScene {
 
@@ -21,6 +23,7 @@ public class GameLevel extends DynamicScene {
 
     @Override
     public void setupEntities() {
-        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64), cosmicComets));
+        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64)));
+        addEntity(new SatelliteBelt(new Coordinate2D(getWidth() /2, getHeight() / 2)));
     }
 }
