@@ -11,9 +11,9 @@ import com.github.hanyaeger.cosmiccomets.entities.satillitebelt.satillite.Satill
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 
-public class Astroid extends DynamicCircleEntity implements Collided, Collider, SceneBorderCrossingWatcher {
+public class Asteroid extends DynamicCircleEntity implements Collided, Collider, SceneBorderCrossingWatcher {
 
-    public Astroid(Coordinate2D initialLocation, double speed) {
+    public Asteroid(Coordinate2D initialLocation, double speed) {
         super(initialLocation);
         setRadius(15);
 
@@ -24,7 +24,7 @@ public class Astroid extends DynamicCircleEntity implements Collided, Collider, 
     }
 
     public double getAngle(Coordinate2D targetCoordinate, Coordinate2D originCoordinate){
-        if (this.equals(targetCoordinate)) {
+        if (originCoordinate.equals(targetCoordinate)) {
             return 0D;
         }
 
@@ -52,7 +52,7 @@ public class Astroid extends DynamicCircleEntity implements Collided, Collider, 
 
     @Override
     public void notifyBoundaryCrossing(SceneBorder sceneBorder) {
-            remove();
+        remove();
     }
 }
 
