@@ -18,7 +18,6 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
 
     public SatelliteBelt(Coordinate2D initialLocation) {
         super(initialLocation);
-
         setRotationSpeed(0);
     }
 
@@ -45,13 +44,13 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
     @Override
     public void onPressedKeysChange(Set<KeyCode> set) {
         if (set.contains(KeyCode.LEFT)) {
-            setRotationSpeed(-2);
+            setRotationSpeed(-1.5);
         } else if (set.contains(KeyCode.RIGHT)) {
-            setRotationSpeed(2);
+            setRotationSpeed(1.5);
         } else if (set.contains(KeyCode.SPACE)) {
             setRotationSpeed(0);
         } else if (set.contains(KeyCode.Z)) {
-            satellite1.setVisible(false);
+            satellite1.setOpacity(0);
         } else if (set.contains(KeyCode.X)) {
             satellite2.setVisible(false);
         } else if (set.contains(KeyCode.C)) {
