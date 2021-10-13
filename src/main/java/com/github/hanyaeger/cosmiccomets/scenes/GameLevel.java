@@ -5,7 +5,7 @@ import com.github.hanyaeger.api.EntitySpawnerContainer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
-import com.github.hanyaeger.cosmiccomets.entities.satillitebelt.SatelliteBelt;
+import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.SatelliteBelt;
 import com.github.hanyaeger.cosmiccomets.spawners.AsteroidSpawner;
 
 public class GameLevel extends DynamicScene implements EntitySpawnerContainer {

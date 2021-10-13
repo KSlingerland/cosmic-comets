@@ -1,4 +1,4 @@
-package com.github.hanyaeger.cosmiccomets.entities.satillitebelt.satillite;
+package com.github.hanyaeger.cosmiccomets.entities.satelliteparts.solarpanel;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
