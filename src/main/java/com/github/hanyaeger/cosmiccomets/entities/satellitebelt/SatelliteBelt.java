@@ -1,20 +1,20 @@
-package com.github.hanyaeger.cosmiccomets.entities.satillitebelt;
+package com.github.hanyaeger.cosmiccomets.entities.satellitebelt;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.api.userinput.KeyListener;
-import com.github.hanyaeger.cosmiccomets.entities.satillitebelt.satillite.Satillite;
+import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.satellite.Satellite;
 import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
 public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener {
 
-    private Satillite satellite1;
-    private Satillite satellite2;
-    private Satillite satellite3;
-    private Satillite satellite4;
+    private Satellite satellite1;
+    private Satellite satellite2;
+    private Satellite satellite3;
+    private Satellite satellite4;
 
     public SatelliteBelt(Coordinate2D initialLocation) {
         super(initialLocation);
@@ -24,19 +24,19 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
     @Override
     protected void setupEntities() {
         //TODO: Make center of rotation constant
-        satellite1 = new Satillite(new Coordinate2D(0, 200));
+        satellite1 = new Satellite(new Coordinate2D(0, 200));
         satellite1.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(satellite1);
 
-        satellite2 = new Satillite(new Coordinate2D(0, -200));
+        satellite2 = new Satellite(new Coordinate2D(0, -200));
         satellite2.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(satellite2);
 
-        satellite3 = new Satillite(new Coordinate2D(200,0));
+        satellite3 = new Satellite(new Coordinate2D(200,0));
         satellite3.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(satellite3);
 
-        satellite4 = new Satillite(new Coordinate2D(-200,0));
+        satellite4 = new Satellite(new Coordinate2D(-200,0));
         satellite4.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(satellite4);
     }
@@ -49,20 +49,12 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
             setRotationSpeed(1.5);
         } else if (set.contains(KeyCode.SPACE)) {
             setRotationSpeed(0);
-        } else if (set.contains(KeyCode.Z)) {
-            satellite1.setOpacity(0);
-        } else if (set.contains(KeyCode.X)) {
-            satellite2.setVisible(false);
-        } else if (set.contains(KeyCode.C)) {
-            satellite3.setVisible(false);
-        } else if (set.contains(KeyCode.V)) {
-            satellite4.setVisible(false);
-        } else if (set.contains(KeyCode.N)) {
-            satellite1.setVisible(false);
-            satellite2.setVisible(false);
-        } else if (set.contains(KeyCode.M)) {
-            satellite3.setVisible(false);
-            satellite4.setVisible(false);
+        } else if (set.isEmpty()){
+            if (getRotationSpeed() > 0){
+                setRotationSpeed(getRotationSpeed() - 1);
+            } else {
+                setRotationSpeed(getRotationSpeed() + 1);
+            }
         }
     }
 }
