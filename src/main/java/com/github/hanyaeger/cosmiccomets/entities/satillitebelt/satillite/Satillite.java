@@ -4,8 +4,9 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
+import com.github.hanyaeger.cosmiccomets.entities.Astroid;
 
-public class Satillite extends DynamicCompositeEntity implements Collided {
+public class Satillite extends DynamicCompositeEntity implements Collided ,Collider {
 
     public Satillite(Coordinate2D initialLocation) {
         super(initialLocation);
@@ -20,6 +21,9 @@ public class Satillite extends DynamicCompositeEntity implements Collided {
 
     @Override
     public void onCollision(Collider collider) {
-        //TODO: Implement Behaviour
+        if (collider instanceof Astroid) {
+            //TODO: Implement Behavior On Collision
+            System.out.println("HIT!");
+        }
     }
 }
