@@ -1,14 +1,16 @@
-package com.github.hanyaeger.cosmiccomets.entities.satillitebelt.satillite;
+package com.github.hanyaeger.cosmiccomets.entities.satellitebelt.satellite;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
+import com.github.hanyaeger.cosmiccomets.entities.satelliteparts.rocketbody.RocketBody;
+import com.github.hanyaeger.cosmiccomets.entities.satelliteparts.solarpanel.SolarPanel;
 
-public class Satillite extends DynamicCompositeEntity implements Collided ,Collider {
+public class Satellite extends DynamicCompositeEntity implements Collided ,Collider {
 
-    public Satillite(Coordinate2D initialLocation) {
+    public Satellite(Coordinate2D initialLocation) {
         super(initialLocation);
         setRotationSpeed(0);
     }
