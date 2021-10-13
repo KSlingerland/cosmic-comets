@@ -3,8 +3,7 @@ package com.github.hanyaeger.cosmiccomets.spawners;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.EntitySpawner;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
-import com.github.hanyaeger.cosmiccomets.entities.Astroid;
-import com.github.hanyaeger.cosmiccomets.scenes.GameLevel;
+import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
 
 import java.util.Random;
 
@@ -22,7 +21,7 @@ public class AsteroidSpawner extends EntitySpawner {
 
     @Override
     protected void spawnEntities() {
-        spawn(new Astroid(randomLocation(), 2));
+        spawn(new Asteroid(randomLocation(), 2));
     }
 
     private Coordinate2D randomLocation() {
