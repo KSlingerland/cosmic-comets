@@ -43,9 +43,9 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
 
     @Override
     public void onPressedKeysChange(Set<KeyCode> set) {
-        if (set.contains(KeyCode.LEFT)) {
+        if (set.contains(KeyCode.RIGHT)) {
             setRotationSpeed(-1.5);
-        } else if (set.contains(KeyCode.RIGHT)) {
+        } else if (set.contains(KeyCode.LEFT)) {
             setRotationSpeed(1.5);
         } else if (set.contains(KeyCode.SPACE)) {
             setRotationSpeed(0);

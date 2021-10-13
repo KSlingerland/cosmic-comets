@@ -6,7 +6,7 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
 
-public class Planet extends DynamicCompositeEntity implements Collided {
+public class Planet extends DynamicCompositeEntity implements Collided, Collider {
 
     public Planet(Coordinate2D initialLocation) {
         super(initialLocation);
