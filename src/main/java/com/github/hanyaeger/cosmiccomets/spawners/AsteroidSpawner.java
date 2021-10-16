@@ -25,9 +25,23 @@ public class AsteroidSpawner extends EntitySpawner {
     }
 
     private Coordinate2D randomLocation() {
-        //TODO: Implement Spawning only from Edge
+        int location = new Random().nextInt(4);
+
+        // TODO: change this?
+        // Standard coordinates for left side
+        double x = 0;
         double y = new Random().nextInt((int) sceneHeight);
-        double x = new Random().nextInt((int) sceneWidth);
+
+        if (location == 1) { // Top side
+            x = new Random().nextInt((int) sceneWidth);
+            y = 0;
+        } else if (location == 2) { // Right side
+            x = new Random().nextInt((int) sceneWidth);
+            y = sceneHeight;
+        } else if (location == 3) { // Bottom side
+            x = sceneWidth;
+            y = new Random().nextInt((int) sceneHeight);
+        }
 
         return new Coordinate2D(x, y);
     }
