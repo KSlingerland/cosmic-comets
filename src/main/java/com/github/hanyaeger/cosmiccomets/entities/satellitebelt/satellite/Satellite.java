@@ -7,12 +7,16 @@ import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
 import com.github.hanyaeger.cosmiccomets.entities.satelliteparts.rocketbody.RocketBody;
 import com.github.hanyaeger.cosmiccomets.entities.satelliteparts.solarpanel.SolarPanel;
+import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 
 public class Satellite extends DynamicCompositeEntity implements Collided ,Collider {
+    private final ScoreText scoreText;
 
-    public Satellite(Coordinate2D initialLocation) {
+    public Satellite(Coordinate2D initialLocation, ScoreText scoreText) {
         super(initialLocation);
         setRotationSpeed(0);
+        this.scoreText = scoreText;
+        this.scoreText.setScoreText(this.scoreText.getScore());
     }
 
     @Override
@@ -25,7 +29,8 @@ public class Satellite extends DynamicCompositeEntity implements Collided ,Colli
     public void onCollision(Collider collider) {
         if (collider instanceof Asteroid) {
             //TODO: Implement Behavior On Collision
-            System.out.println("HIT!");
+            int newScore = this.scoreText.getScore() + 1;
+            this.scoreText.setScoreText(newScore);
         }
     }
 }

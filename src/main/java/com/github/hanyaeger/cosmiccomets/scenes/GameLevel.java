@@ -6,14 +6,15 @@ import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
 import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.SatelliteBelt;
+import com.github.hanyaeger.cosmiccomets.entities.text.PlanetHealthText;
+import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 import com.github.hanyaeger.cosmiccomets.spawners.AsteroidSpawner;
 
 public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
-
+    private ScoreText scoreText;
     private final CosmicComets cosmicComets;
 
     public GameLevel(CosmicComets cosmicComets) {
-
         this.cosmicComets = cosmicComets;
     }
 
@@ -24,8 +25,13 @@ public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
 
     @Override
     public void setupEntities() {
-        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64)));
-        addEntity(new SatelliteBelt(new Coordinate2D(getWidth() / 2, getHeight() / 2)));
+        PlanetHealthText planetHealthText = new PlanetHealthText(new Coordinate2D(0, 0));
+        scoreText = new ScoreText(new Coordinate2D(0, 50));
+
+        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64), planetHealthText, this.cosmicComets));
+        addEntity(new SatelliteBelt(new Coordinate2D(getWidth() / 2, getHeight() / 2), scoreText));
+        addEntity(planetHealthText);
+        addEntity(scoreText);
     }
 
     @Override

@@ -6,22 +6,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class ScoreText extends TextEntity {
-    private int score = 0;
+public class PlanetHealthText extends TextEntity {
 
-    public ScoreText(Coordinate2D initialLocation) {
+    public PlanetHealthText(Coordinate2D initialLocation) {
         super(initialLocation);
 
         setFont(Font.font("", FontWeight.NORMAL, 32));
         setFill(Color.WHITE);
     }
 
-    public void setScoreText(int score) {
-        setText("Score: " + score);
-        this.score = score; //save new total score in this instance of ScoreText
-    }
-
-    public int getScore() {
-        return this.score;
-    }
+    public void setHealthText(final int health) { setText("Planet Health: " + health); }
 }
