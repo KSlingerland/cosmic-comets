@@ -8,6 +8,7 @@ import com.github.hanyaeger.api.entities.impl.DynamicCircleEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
 import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.satellite.Satellite;
+import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 
@@ -41,8 +42,7 @@ public class Asteroid extends DynamicCircleEntity implements Collided, Collider,
     @Override
     public void onCollision(Collider collider) {
         if (collider instanceof Planet) {
-            //TODO: Implement Planet Collision
-            System.out.println("AND ITS GONE!");
+            remove();
         }
 
         if (collider instanceof Satellite) {
