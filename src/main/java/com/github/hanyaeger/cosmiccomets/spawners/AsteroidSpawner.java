@@ -4,7 +4,6 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.EntitySpawner;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
-import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 
 import java.util.Random;
 
@@ -22,9 +21,14 @@ public class AsteroidSpawner extends EntitySpawner {
 
     @Override
     protected void spawnEntities() {
-        spawn(new Asteroid(randomLocation(), 2));
+        spawn(new Asteroid(randomLocation(), getRandomNumberInRange(5, 2)));
     }
 
+    //TODO: Add JavaDOC
+
+    /**
+     * @return
+     */
     private Coordinate2D randomLocation() {
         int location = new Random().nextInt(4);
 
@@ -49,5 +53,16 @@ public class AsteroidSpawner extends EntitySpawner {
         }
 
         return new Coordinate2D(x, y);
+    }
+
+    //TODO: Add JavaDOC
+
+    /**
+     * @param max
+     * @param min
+     * @return
+     */
+    private int getRandomNumberInRange(int max, int min) {
+        return new Random().nextInt(max - min + 1) + min;
     }
 }

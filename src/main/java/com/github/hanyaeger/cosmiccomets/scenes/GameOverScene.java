@@ -7,7 +7,6 @@ import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.buttons.QuitButton;
 import com.github.hanyaeger.cosmiccomets.entities.buttons.RetryButton;
-import com.github.hanyaeger.cosmiccomets.entities.buttons.StartButton;
 import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;

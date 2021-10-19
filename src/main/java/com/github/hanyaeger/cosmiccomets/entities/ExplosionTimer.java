@@ -4,7 +4,7 @@ import com.github.hanyaeger.api.Timer;
 
 public class ExplosionTimer extends Timer {
 
-    private Explosion explosion;
+    private final Explosion explosion;
 
     public ExplosionTimer(final Explosion explosion) {
         super(40);

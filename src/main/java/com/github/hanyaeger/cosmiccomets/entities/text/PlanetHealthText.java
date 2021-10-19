@@ -15,5 +15,7 @@ public class PlanetHealthText extends TextEntity {
         setFill(Color.WHITE);
     }
 
-    public void setHealthText(final int health) { setText("Planet Health: " + health); }
+    public void setHealthText(final int health) {
+        setText("Planet Health: " + health);
+    }
 }

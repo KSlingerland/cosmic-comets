@@ -9,6 +9,7 @@ import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.SatelliteBelt;
 import com.github.hanyaeger.cosmiccomets.entities.text.PlanetHealthText;
 import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 import com.github.hanyaeger.cosmiccomets.spawners.AsteroidSpawner;
+import com.github.hanyaeger.cosmiccomets.spawners.PickupSpawner;
 
 public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
     private final CosmicComets cosmicComets;
@@ -37,5 +38,6 @@ public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
     @Override
     public void setupEntitySpawners() {
         addEntitySpawner(new AsteroidSpawner(getWidth(), getHeight()));
+        addEntitySpawner(new PickupSpawner());
     }
 }

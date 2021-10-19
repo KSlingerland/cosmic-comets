@@ -23,7 +23,7 @@ public class Planet extends DynamicCompositeEntity implements Collided, Collider
 
     @Override
     protected void setupEntities() {
-        var planetSprite = new PlanetSprite(new Coordinate2D(0,0));
+        var planetSprite = new PlanetSprite(new Coordinate2D(0, 0));
         addEntity(planetSprite);
         planetHealthText.setHealthText(health);
     }
