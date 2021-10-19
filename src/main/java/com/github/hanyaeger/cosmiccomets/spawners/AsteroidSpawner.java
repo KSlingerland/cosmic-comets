@@ -33,15 +33,19 @@ public class AsteroidSpawner extends EntitySpawner {
         double x = 0;
         double y = new Random().nextInt((int) sceneHeight);
 
-        if (location == 1) { // Top side
-            x = new Random().nextInt((int) sceneWidth);
-            y = 0;
-        } else if (location == 2) { // Right side
-            x = new Random().nextInt((int) sceneWidth);
-            y = sceneHeight;
-        } else if (location == 3) { // Bottom side
-            x = sceneWidth;
-            y = new Random().nextInt((int) sceneHeight);
+        switch (location) {
+            case 1 -> {  // Top side
+                x = new Random().nextInt((int) sceneWidth);
+                y = 0;
+            }
+            case 2 -> {  // Right side
+                x = new Random().nextInt((int) sceneWidth);
+                y = sceneHeight;
+            }
+            case 3 -> {  // Bottom side
+                x = sceneWidth;
+                y = new Random().nextInt((int) sceneHeight);
+            }
         }
 
         return new Coordinate2D(x, y);
