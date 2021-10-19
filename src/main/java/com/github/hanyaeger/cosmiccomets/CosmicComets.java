@@ -20,7 +20,7 @@ public class CosmicComets extends YaegerGame {
         setGameTitle("Cosmic Comets");
         setSize(new Size(1600, 900));
 
-        scoreText = new ScoreText(new Coordinate2D(0, 50));
+        scoreText = new ScoreText(new Coordinate2D(0, 50)); //TODO: Cleanup
     }
 
     @Override
