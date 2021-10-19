@@ -34,7 +34,7 @@ public class GameOverScene extends StaticScene {
         missionFailedText.setFill(Color.RED);
         addEntity(missionFailedText);
 
-        var scoreText = new TextEntity(new Coordinate2D(getWidth() / 2, getHeight() / 3 + 40), "Asteroids destroyed: " + this.scoreText.getScore());
+        var scoreText = new TextEntity(new Coordinate2D(getWidth() / 2, getHeight() / 3 + 40), "Asteroids destroyed: " + this.scoreText.getScore()); //TODO: ???
         scoreText.setAnchorPoint(AnchorPoint.BOTTOM_CENTER);
         scoreText.setFont(Font.font("", 32));
         scoreText.setFill(Color.GREY);

@@ -28,10 +28,10 @@ public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
     @Override
     public void setupEntities() {
         PlanetHealthText planetHealthText = new PlanetHealthText(new Coordinate2D(0, 0));
-
-        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64), planetHealthText, this.cosmicComets));
-        addEntity(new SatelliteBelt(new Coordinate2D(getWidth() / 2, getHeight() / 2), scoreText));
         addEntity(planetHealthText);
+
+        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64), planetHealthText, cosmicComets));
+        addEntity(new SatelliteBelt(new Coordinate2D(getWidth() / 2, getHeight() / 2), scoreText));
         addEntity(scoreText);
     }
 
