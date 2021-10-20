@@ -27,16 +27,19 @@ public class TitleScene extends StaticScene {
 
     @Override
     public void setupEntities() {
+        // Head title of the start scene
         var cosmicCometsText = new TextEntity(new Coordinate2D(getWidth() / 2, getHeight() / 4), "Cosmic Comets");
         cosmicCometsText.setAnchorPoint(AnchorPoint.BOTTOM_CENTER);
         cosmicCometsText.setFill(Color.WHITESMOKE);
         cosmicCometsText.setFont(Font.font("Bodoni MT", FontWeight.BOLD, 80));
         addEntity(cosmicCometsText);
 
+        // Button to play the game (loads the game level scene)
         var playGameText = new StartButton(new Coordinate2D(getWidth() / 4, getHeight() / 2), cosmicComets);
         playGameText.setAnchorPoint(AnchorPoint.TOP_RIGHT);
         addEntity(playGameText);
 
+        // Button to quit the game
         var quitGameText = new QuitButton(new Coordinate2D(getWidth() / 4, getHeight() / 2 + 40), cosmicComets);
         quitGameText.setAnchorPoint(AnchorPoint.TOP_RIGHT);
         addEntity(quitGameText);

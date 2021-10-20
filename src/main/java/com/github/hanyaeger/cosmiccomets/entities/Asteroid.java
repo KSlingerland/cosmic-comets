@@ -13,6 +13,10 @@ import javafx.scene.paint.Color;
 
 public class Asteroid extends DynamicCircleEntity implements Collided, Collider, SceneBorderCrossingWatcher {
 
+    /**
+     * @param initialLocation the location where the Asteroid gets placed
+     * @param speed the given speed of how fast the asteroids moves
+     */
     public Asteroid(Coordinate2D initialLocation, double speed) {
         super(initialLocation);
         setRadius(15);
@@ -23,13 +27,10 @@ public class Asteroid extends DynamicCircleEntity implements Collided, Collider,
         setMotion(speed, getAngle(new Coordinate2D(800, 450), initialLocation));
     }
 
-
-    //TODO: Add JavaDoc
-
     /**
-     * @param targetCoordinate
-     * @param originCoordinate
-     * @return
+     * @param targetCoordinate the given target coordinates (example: the planet)
+     * @param originCoordinate the given origin coordinates
+     * @return Point2D angle to target coordinates
      */
     public double getAngle(Coordinate2D targetCoordinate, Coordinate2D originCoordinate) {
         if (originCoordinate.equals(targetCoordinate)) {
@@ -54,6 +55,7 @@ public class Asteroid extends DynamicCircleEntity implements Collided, Collider,
 
         //TODO: Implement Better Collision
         if (collider instanceof Satellite) {
+            // Remove the Asteroid if it collides with
             if (((Satellite) collider).getOpacity() != 0) {
                 remove();
             }

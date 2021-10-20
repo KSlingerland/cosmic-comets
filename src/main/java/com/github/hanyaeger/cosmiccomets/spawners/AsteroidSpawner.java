@@ -13,6 +13,11 @@ public class AsteroidSpawner extends EntitySpawner {
     private final double sceneHeight;
     private CosmicComets cosmicComets;
 
+    /**
+     * Set the sceneWidth and sceneHeight for this Object
+     * @param sceneWidth get the scene width of the given window
+     * @param sceneHeight get the scene height of the given window
+     */
     public AsteroidSpawner(double sceneWidth, double sceneHeight) {
         super(2000); //TODO: Implement Random Spawning Rate
         this.sceneWidth = sceneWidth;
@@ -24,15 +29,13 @@ public class AsteroidSpawner extends EntitySpawner {
         spawn(new Asteroid(randomLocation(), getRandomNumberInRange(5, 2)));
     }
 
-    //TODO: Add JavaDOC
-
     /**
-     * @return
+     * Returns a random location given to an asteroid to for the spawning position
+     * @return Coordinate2D
      */
     private Coordinate2D randomLocation() {
         int location = new Random().nextInt(4);
 
-        // TODO: change this?
         // Standard coordinates for left side
         double x = 0;
         double y = new Random().nextInt((int) sceneHeight);
@@ -55,14 +58,13 @@ public class AsteroidSpawner extends EntitySpawner {
         return new Coordinate2D(x, y);
     }
 
-    //TODO: Add JavaDOC
-
     /**
-     * @param max
-     * @param min
-     * @return
+     * Generates a random number between the given minimum and maximum integers
+     * @param max the given maximum
+     * @param min the given minimum
+     * @return random integer
      */
-    private int getRandomNumberInRange(int max, int min) {
+    private int getRandomNumberInRange(final int max, final int min) {
         return new Random().nextInt(max - min + 1) + min;
     }
 }

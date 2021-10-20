@@ -17,6 +17,9 @@ public class Explosion extends DynamicSpriteEntity implements TimerContainer {
         new SoundClip("audio/boom.wav").play();
     }
 
+    /**
+     *
+     */
     public void updateFrame() {
         if (getCurrentFrameIndex() < getFrames() - 1) {
             frameIndex++;

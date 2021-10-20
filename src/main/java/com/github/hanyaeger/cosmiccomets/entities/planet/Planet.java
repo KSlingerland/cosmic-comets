@@ -14,6 +14,11 @@ public class Planet extends DynamicCompositeEntity implements Collided, Collider
     private final CosmicComets cosmicComets;
     private int health = 3;
 
+    /**
+     * @param initialLocation the given location where the Planet gets placed
+     * @param planetHealthText the instance of PlanetHealthText
+     * @param cosmicComets the instance of the game
+     */
     public Planet(Coordinate2D initialLocation, PlanetHealthText planetHealthText, final CosmicComets cosmicComets) {
         super(initialLocation);
 

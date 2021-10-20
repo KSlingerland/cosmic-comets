@@ -6,6 +6,10 @@ public class ExplosionTimer extends Timer {
 
     private final Explosion explosion;
 
+    /**
+     * Set the explosion instance in this Object
+     * @param explosion the given explosion instance
+     */
     public ExplosionTimer(final Explosion explosion) {
         super(40);
         this.explosion = explosion;

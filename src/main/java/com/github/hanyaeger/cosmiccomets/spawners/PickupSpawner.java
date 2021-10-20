@@ -9,6 +9,9 @@ import java.util.Random;
 
 public class PickupSpawner extends EntitySpawner {
 
+    /**
+     * PickupSpawner constructor which gives back the interval in milliseconds to EntitySpawner
+     */
     public PickupSpawner() {
         super(5000);
     }
@@ -23,6 +26,11 @@ public class PickupSpawner extends EntitySpawner {
     }
 
     //TODO: Implement Correct Spawning Locations
+
+    /**
+     * Returns a new instance of Coordinate2D
+     * @return Coordinate2D
+     */
     private Coordinate2D randomLocation() {
         double x = new Random().nextInt(800);
         return new Coordinate2D(x, 450);
