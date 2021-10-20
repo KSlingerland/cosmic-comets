@@ -6,8 +6,7 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
-import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
-import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.Satellite;
+import com.github.hanyaeger.cosmiccomets.entities.Planet;
 
 public abstract class Pickup extends DynamicSpriteEntity implements Collided, Collider {
 
@@ -22,8 +21,7 @@ public abstract class Pickup extends DynamicSpriteEntity implements Collided, Co
 
     @Override
     public void onCollision(Collider collider) {
-        if (collider instanceof Satellite) {
-        } else if (collider instanceof Asteroid) {
+        if (collider instanceof Asteroid) {
             remove();
         } else if (collider instanceof Planet) {
             remove();

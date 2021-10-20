@@ -2,7 +2,6 @@ package com.github.hanyaeger.cosmiccomets;
 
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
-import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 import com.github.hanyaeger.cosmiccomets.scenes.GameLevel;
 import com.github.hanyaeger.cosmiccomets.scenes.GameOverScene;
 import com.github.hanyaeger.cosmiccomets.scenes.TitleScene;
