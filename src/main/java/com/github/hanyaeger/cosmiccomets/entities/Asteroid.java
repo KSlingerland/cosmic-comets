@@ -7,8 +7,7 @@ import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicCircleEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
-import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.satellite.Satellite;
-import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
+import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.Satellite;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 
@@ -21,10 +20,18 @@ public class Asteroid extends DynamicCircleEntity implements Collided, Collider,
         setFill(Color.ORANGE);
         setStrokeColor(Color.BROWN);
 
-        setMotion(speed,getAngle(new Coordinate2D(800, 450), initialLocation));
+        setMotion(speed, getAngle(new Coordinate2D(800, 450), initialLocation));
     }
 
-    public double getAngle(Coordinate2D targetCoordinate, Coordinate2D originCoordinate){
+
+    //TODO: Add JavaDoc
+
+    /**
+     * @param targetCoordinate
+     * @param originCoordinate
+     * @return
+     */
+    public double getAngle(Coordinate2D targetCoordinate, Coordinate2D originCoordinate) {
         if (originCoordinate.equals(targetCoordinate)) {
             return 0D;
         }
@@ -45,8 +52,11 @@ public class Asteroid extends DynamicCircleEntity implements Collided, Collider,
             remove();
         }
 
+        //TODO: Implement Better Collision
         if (collider instanceof Satellite) {
-            remove();
+            if (((Satellite) collider).getOpacity() != 0) {
+                remove();
+            }
         }
     }
 
