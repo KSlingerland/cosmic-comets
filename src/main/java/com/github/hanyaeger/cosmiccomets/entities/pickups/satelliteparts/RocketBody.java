@@ -5,6 +5,9 @@ import com.github.hanyaeger.cosmiccomets.entities.pickups.Pickup;
 
 public class RocketBody extends Pickup implements SatellitePart {
 
+    /**
+     * @param initialLocation the given location of where the RocketBody gets placed
+     */
     public RocketBody(Coordinate2D initialLocation) {
         super("sprites/rocketbody.png", initialLocation);
     }

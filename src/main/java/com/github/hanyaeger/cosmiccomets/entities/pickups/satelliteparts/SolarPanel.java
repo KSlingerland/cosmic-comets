@@ -5,6 +5,9 @@ import com.github.hanyaeger.cosmiccomets.entities.pickups.Pickup;
 
 public class SolarPanel extends Pickup implements SatellitePart {
 
+    /**
+     * @param initialLocation the given location where the SolarPanel gets placed
+     */
     public SolarPanel(Coordinate2D initialLocation) {
         super("sprites/solarpanel.png", initialLocation);
     }

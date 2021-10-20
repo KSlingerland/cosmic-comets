@@ -8,13 +8,20 @@ import javafx.scene.text.FontWeight;
 
 public class ScoreText extends TextEntity {
 
+    /**
+     * @param initialLocation the given location where the ScoreText gets placed
+     */
     public ScoreText(Coordinate2D initialLocation) {
         super(initialLocation, "Score: 0");
         setFont(Font.font("", FontWeight.NORMAL, 32));
         setFill(Color.WHITE);
     }
 
-    public void setScoreText(int score) {
+    /**
+     * Set the new score of the total destroyed asteroids
+     * @param score the given score to set
+     */
+    public void setScoreText(final int score) {
         setText("Score: " + score);
     }
 }

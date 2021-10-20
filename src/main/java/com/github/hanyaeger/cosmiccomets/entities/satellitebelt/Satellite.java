@@ -11,15 +11,19 @@ import com.github.hanyaeger.cosmiccomets.entities.pickups.Pickup;
 import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 
 public class Satellite extends DynamicSpriteEntity implements Collided, Collider {
-    private CosmicComets cosmicComets;
-    private ScoreText scoreText;
+    private final CosmicComets cosmicComets;
+    private final ScoreText scoreText;
 
     private int health = 2;
-    private int score = 0;
 
+    /**
+     * @param initialLocation the location where the satellite gets placed
+     * @param cosmicComets the instance of the game
+     * @param scoreText the instance of the ScoreText which displays the score
+     */
     public Satellite(final Coordinate2D initialLocation, final CosmicComets cosmicComets, final ScoreText scoreText) {
         super("sprites/satellite.png", initialLocation, new Size(64), 2, 2);
-        setAutoCycle(200,0);
+        setAutoCycle(200, 0);
         setRotationSpeed(0);
 
         this.cosmicComets = cosmicComets;
@@ -28,13 +32,21 @@ public class Satellite extends DynamicSpriteEntity implements Collided, Collider
 
     @Override
     public void onCollision(Collider collider) {
-        score = cosmicComets.getScore();
+        int score = cosmicComets.getScore();
         if (collider instanceof Asteroid) {
             health--;
 
             switch (health) {
-                case 1 -> setAutoCycleRow(1);
-                case 0 -> setOpacity(0);
+                case 1 -> {
+                    setAutoCycleRow(1);
+                }
+                case 0 -> {
+                    setOpacity(0);
+                    // Remove the asteroid when the health of the satellite is 0, when health is 0 set the opacity to 0,
+                    // but in the class Asteroid it removes the asteroid when it collides with the satellite if the opacity is NOT 0
+                    // so the asteroid does not get removed even if it destroys the satellite
+                    ((Asteroid) collider).remove();
+                }
             }
 
             cosmicComets.setScore(++score);

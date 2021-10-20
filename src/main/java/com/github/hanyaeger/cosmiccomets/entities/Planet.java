@@ -14,6 +14,11 @@ public class Planet extends DynamicSpriteEntity implements Collided, Collider {
     private final CosmicComets cosmicComets;
     private int health = 3;
 
+    /**
+     * @param initialLocation the given location where the Planet gets placed
+     * @param planetHealthText the instance of PlanetHealthText
+     * @param cosmicComets the instance of the game
+     */
     public Planet(Coordinate2D initialLocation, PlanetHealthText planetHealthText, final CosmicComets cosmicComets) {
         super("sprites/Earth.png", initialLocation, new Size(128), 16, 16);
         setAutoCycle(1);

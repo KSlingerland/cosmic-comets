@@ -11,8 +11,8 @@ import javafx.scene.input.KeyCode;
 import java.util.Set;
 
 public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener {
-    private CosmicComets cosmicComets;
-    private ScoreText scoreText;
+    private final CosmicComets cosmicComets;
+    private final ScoreText scoreText;
 
     //TODO: Refactor
     private Satellite satellite1;
@@ -20,6 +20,11 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
     private Satellite satellite3;
     private Satellite satellite4;
 
+    /**
+     * @param initialLocation the given location where the SatelliteBelt gets placed
+     * @param scoreText the instance of the ScoreText which displays the score
+     * @param cosmicComets the instance of the game
+     */
     public SatelliteBelt(Coordinate2D initialLocation, ScoreText scoreText, CosmicComets cosmicComets) {
         super(initialLocation);
         setRotationSpeed(0);
@@ -48,6 +53,10 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
         addEntity(satellite4);
     }
 
+    /**
+     * Do an action when a certain key gets pressed
+     * @param set the set of keys
+     */
     @Override
     public void onPressedKeysChange(Set<KeyCode> set) {
         if (set.contains(KeyCode.RIGHT)) {

@@ -15,8 +15,12 @@ import javafx.scene.text.FontWeight;
 public class QuitButton extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
     private final CosmicComets cosmicComets;
 
-    public QuitButton(Coordinate2D initialPosition, CosmicComets cosmicComets) {
-        super(initialPosition, "Quit game");
+    /**
+     * @param initialLocation the given location of where the StartButton gets placed
+     * @param cosmicComets the instance of the game
+     */
+    public QuitButton(Coordinate2D initialLocation, CosmicComets cosmicComets) {
+        super(initialLocation, "Quit game");
         this.cosmicComets = cosmicComets;
 
         setFill(Color.ORANGE);
@@ -25,6 +29,7 @@ public class QuitButton extends TextEntity implements MouseButtonPressedListener
 
     @Override
     public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D) {
+        // Stop and close the game
         cosmicComets.quit();
     }
 

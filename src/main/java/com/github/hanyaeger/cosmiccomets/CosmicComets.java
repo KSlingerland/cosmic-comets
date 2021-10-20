@@ -10,6 +10,10 @@ public class CosmicComets extends YaegerGame {
 
     private int score;
 
+    /**
+     * The main method launching the game
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
@@ -27,10 +31,18 @@ public class CosmicComets extends YaegerGame {
         addScene(2, new GameOverScene(this));
     }
 
+    /**
+     * Returns the score of the total destroyed asteroids
+     * @return score
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * Set the new score of the total destroyed asteroids
+     * @param score the score to be changed
+     */
     public void setScore(int score) {
         this.score = score;
     }

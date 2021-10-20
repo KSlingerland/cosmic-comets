@@ -25,9 +25,11 @@ public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
 
     @Override
     public void setupEntities() {
+        // Text to show the planet health displayed at the top left
         var planetHealthText = new PlanetHealthText(new Coordinate2D(0, 0));
         addEntity(planetHealthText);
 
+        // Text to show the total score (destroyed asteroids) at the top left under the planet health
         var scoreText = new ScoreText(new Coordinate2D(0, 50));
         addEntity(scoreText);
 

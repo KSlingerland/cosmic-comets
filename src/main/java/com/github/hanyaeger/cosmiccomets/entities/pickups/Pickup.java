@@ -10,6 +10,10 @@ import com.github.hanyaeger.cosmiccomets.entities.Planet;
 
 public abstract class Pickup extends DynamicSpriteEntity implements Collided, Collider {
 
+    /**
+     * @param resource the sprite of the pickup
+     * @param initialLocation the location where the Pickup gets placed
+     */
     public Pickup(String resource, Coordinate2D initialLocation) {
         super(resource, initialLocation, new Size(64));
         setRotationSpeed(2);
@@ -24,6 +28,9 @@ public abstract class Pickup extends DynamicSpriteEntity implements Collided, Co
         }
     }
 
+    /**
+     * Remove the pickup entity
+     */
     public void consumePickup() {
         remove();
     }

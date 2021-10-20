@@ -16,6 +16,10 @@ public class StartButton extends TextEntity implements MouseButtonPressedListene
 
     private final CosmicComets cosmicComets;
 
+    /**
+     * @param initialLocation the given location of where the StartButton gets placed
+     * @param cosmicComets the instance of the game
+     */
     public StartButton(Coordinate2D initialLocation, CosmicComets cosmicComets) {
         super(initialLocation, "Start Mission");
         this.cosmicComets = cosmicComets;
@@ -25,6 +29,7 @@ public class StartButton extends TextEntity implements MouseButtonPressedListene
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
+        // Set the scene with ID 1 active (game level scene)
         cosmicComets.setActiveScene(1);
     }
 
