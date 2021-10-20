@@ -6,7 +6,6 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicCircleEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
-import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
 import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.Satellite;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;

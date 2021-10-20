@@ -4,7 +4,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.EntitySpawnerContainer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
-import com.github.hanyaeger.cosmiccomets.entities.planet.Planet;
+import com.github.hanyaeger.cosmiccomets.entities.Planet;
 import com.github.hanyaeger.cosmiccomets.entities.satellitebelt.SatelliteBelt;
 import com.github.hanyaeger.cosmiccomets.entities.text.PlanetHealthText;
 import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;

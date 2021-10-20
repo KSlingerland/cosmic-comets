@@ -2,7 +2,6 @@ package com.github.hanyaeger.cosmiccomets.spawners;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.EntitySpawner;
-import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
 
 import java.util.Random;
@@ -11,7 +10,6 @@ public class AsteroidSpawner extends EntitySpawner {
 
     private final double sceneWidth;
     private final double sceneHeight;
-    private CosmicComets cosmicComets;
 
     public AsteroidSpawner(double sceneWidth, double sceneHeight) {
         super(2000); //TODO: Implement Random Spawning Rate
