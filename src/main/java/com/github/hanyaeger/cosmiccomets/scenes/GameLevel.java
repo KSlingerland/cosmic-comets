@@ -13,11 +13,9 @@ import com.github.hanyaeger.cosmiccomets.spawners.PickupSpawner;
 
 public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
     private final CosmicComets cosmicComets;
-    private final ScoreText scoreText;
 
-    public GameLevel(CosmicComets cosmicComets, ScoreText scoreText) {
+    public GameLevel(CosmicComets cosmicComets) {
         this.cosmicComets = cosmicComets;
-        this.scoreText = scoreText;
     }
 
     @Override
@@ -27,12 +25,14 @@ public class GameLevel extends DynamicScene implements EntitySpawnerContainer {
 
     @Override
     public void setupEntities() {
-        PlanetHealthText planetHealthText = new PlanetHealthText(new Coordinate2D(0, 0));
+        var planetHealthText = new PlanetHealthText(new Coordinate2D(0, 0));
         addEntity(planetHealthText);
 
-        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64), planetHealthText, cosmicComets));
-        addEntity(new SatelliteBelt(new Coordinate2D(getWidth() / 2, getHeight() / 2), scoreText));
+        var scoreText = new ScoreText(new Coordinate2D(0, 50));
         addEntity(scoreText);
+
+        addEntity(new Planet(new Coordinate2D(getWidth() / 2 - 64, getHeight() / 2 - 64), planetHealthText, cosmicComets));
+        addEntity(new SatelliteBelt(new Coordinate2D(getWidth() / 2, getHeight() / 2), scoreText, cosmicComets));
     }
 
     @Override

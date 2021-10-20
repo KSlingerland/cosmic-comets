@@ -25,4 +25,8 @@ public abstract class Pickup extends DynamicSpriteEntity implements Collided, Co
             remove();
         }
     }
+
+    public void consumePickup() {
+        remove();
+    }
 }

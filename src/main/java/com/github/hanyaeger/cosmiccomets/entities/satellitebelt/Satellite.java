@@ -5,26 +5,30 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
+import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
+import com.github.hanyaeger.cosmiccomets.entities.pickups.Pickup;
 import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
 
 public class Satellite extends DynamicSpriteEntity implements Collided, Collider {
-
-    private final ScoreText scoreText;
+    private CosmicComets cosmicComets;
+    private ScoreText scoreText;
 
     private int health = 2;
-    private final int row = 0;
+    private int score = 0;
 
-    public Satellite(Coordinate2D initialLocation, ScoreText scoreText) {
+    public Satellite(final Coordinate2D initialLocation, final CosmicComets cosmicComets, final ScoreText scoreText) {
         super("sprites/satellite.png", initialLocation, new Size(64), 2, 2);
-        setAutoCycle(200, row);
+        setAutoCycle(200,0);
         setRotationSpeed(0);
 
+        this.cosmicComets = cosmicComets;
         this.scoreText = scoreText;
     }
 
     @Override
     public void onCollision(Collider collider) {
+        score = cosmicComets.getScore();
         if (collider instanceof Asteroid) {
             health--;
 
@@ -33,7 +37,10 @@ public class Satellite extends DynamicSpriteEntity implements Collided, Collider
                 case 0 -> setOpacity(0);
             }
 
-            scoreText.setScoreText(scoreText.getScore() + 1);
+            cosmicComets.setScore(++score);
+            scoreText.setScoreText(score);
+        } else if (collider instanceof Pickup) {
+            ((Pickup) collider).consumePickup();
         }
     }
 }

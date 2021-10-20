@@ -14,7 +14,7 @@ public class Planet extends DynamicCompositeEntity implements Collided, Collider
     private final CosmicComets cosmicComets;
     private int health = 3;
 
-    public Planet(Coordinate2D initialLocation, PlanetHealthText planetHealthText, CosmicComets cosmicComets) {
+    public Planet(Coordinate2D initialLocation, PlanetHealthText planetHealthText, final CosmicComets cosmicComets) {
         super(initialLocation);
 
         this.planetHealthText = planetHealthText;
@@ -36,7 +36,7 @@ public class Planet extends DynamicCompositeEntity implements Collided, Collider
             planetHealthText.setHealthText(health);
 
             if (health <= 0) {
-                this.cosmicComets.setActiveScene(2);
+                cosmicComets.setActiveScene(2);
             }
         }
     }
