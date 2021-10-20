@@ -55,7 +55,7 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
 
     /**
      * Do an action when a certain key gets pressed
-     * @param set
+     * @param set the set of keys
      */
     @Override
     public void onPressedKeysChange(Set<KeyCode> set) {
