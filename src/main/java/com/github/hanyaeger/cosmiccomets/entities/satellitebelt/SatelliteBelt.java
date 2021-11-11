@@ -20,6 +20,9 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
     private Satellite satellite3;
     private Satellite satellite4;
 
+
+//   gsahdsakdjasdhajsdnjasdasjdasb
+
     /**
      * @param initialLocation the given location where the SatelliteBelt gets placed
      * @param scoreText the instance of the ScoreText which displays the score
