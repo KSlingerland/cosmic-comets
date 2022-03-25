@@ -4,11 +4,14 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
+import com.github.hanyaeger.api.entities.Direction;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
 import com.github.hanyaeger.cosmiccomets.entities.pickups.Pickup;
 import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
+
+import java.util.List;
 
 public class Satellite extends DynamicSpriteEntity implements Collided, Collider {
     private final CosmicComets cosmicComets;
@@ -18,8 +21,8 @@ public class Satellite extends DynamicSpriteEntity implements Collided, Collider
 
     /**
      * @param initialLocation the location where the satellite gets placed
-     * @param cosmicComets the instance of the game
-     * @param scoreText the instance of the ScoreText which displays the score
+     * @param cosmicComets    the instance of the game
+     * @param scoreText       the instance of the ScoreText which displays the score
      */
     public Satellite(final Coordinate2D initialLocation, final CosmicComets cosmicComets, final ScoreText scoreText) {
         super("sprites/satellite.png", initialLocation, new Size(64), 2, 2);
@@ -52,7 +55,48 @@ public class Satellite extends DynamicSpriteEntity implements Collided, Collider
             cosmicComets.setScore(++score);
             scoreText.setScoreText(score);
         } else if (collider instanceof Pickup) {
+            if (health == 0) {
+                return;
+            }
+
             ((Pickup) collider).consumePickup();
+
+            // Only has RocketBody
+            if (health < 2) {
+                health++;
+            }
+
+            // Set the satellite to the correct row of the sprite sheet
+            switch (health) {
+                case 1 -> {
+                    setAutoCycleRow(1);
+                    setOpacity(1);
+                }
+                case 2 -> {
+                    setAutoCycle(200, 0);
+                }
+            }
         }
+    }
+
+    /**
+     * Sets the right direction of the satellite when the user presses the left or right arrow key
+     *
+     * @param direction the direction in which the satellite should move
+     */
+    public void setKeypressDirection(Direction direction, float speed) {
+        double x = getAnchorLocation().getX();
+        double y = getAnchorLocation().getY();
+
+        // Get the current x or y coordinate of the satellite to check if the satellite is moving towards the Planet
+        double coordinates = direction.equals(Direction.LEFT) || direction.equals(Direction.RIGHT) ? x : y;
+
+        // Stop the satellite from moving into the Planet
+        if (coordinates > -150 && coordinates < 150) {
+            setMotion(0, 0);
+            return;
+        }
+
+        setMotion(speed, direction.getValue());
     }
 }

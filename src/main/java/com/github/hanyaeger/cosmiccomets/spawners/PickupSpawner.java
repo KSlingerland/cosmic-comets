@@ -25,14 +25,15 @@ public class PickupSpawner extends EntitySpawner {
         }
     }
 
-    //TODO: Implement Correct Spawning Locations
-
     /**
      * Returns a new instance of Coordinate2D
      * @return Coordinate2D
      */
     private Coordinate2D randomLocation() {
-        double x = new Random().nextInt(800);
-        return new Coordinate2D(x, 450);
+        // Give a random x coordinate between 400 and 1200
+        double x = new Random().nextInt(1200) + 400;
+        // Give a random y coordinate between 200 and 600
+        double y = new Random().nextInt(600) + 200;
+        return new Coordinate2D(x, y);
     }
 }
