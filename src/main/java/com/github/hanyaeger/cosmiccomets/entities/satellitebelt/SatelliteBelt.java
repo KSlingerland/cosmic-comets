@@ -20,6 +20,8 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
     private Satellite satellite3;
     private Satellite satellite4;
 
+    private KeyCode lastKeyInput = null;
+
     /**
      * @param initialLocation the given location where the SatelliteBelt gets placed
      * @param scoreText       the instance of the ScoreText which displays the score
@@ -64,54 +66,49 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
     @Override
     public void onPressedKeysChange(Set<KeyCode> set) {
         float speed = 4f;
-        boolean rotateBelt = false;
 
-        // TODO: fix: when moving up or down the rotation is reversed
         if (set.contains(KeyCode.RIGHT)) {
             // Move the SatelliteBelt to the right
             setRotationSpeed(-1.5);
-            rotateBelt = true;
-        }
-
-        if (set.contains(KeyCode.LEFT)) {
+            lastKeyInput = KeyCode.RIGHT;
+        } else if (set.contains(KeyCode.LEFT)) {
             // Move the SatelliteBelt to the left
             setRotationSpeed(1.5);
-            rotateBelt = true;
-        }
-
-        if (set.contains(KeyCode.UP)) {
+            lastKeyInput = KeyCode.LEFT;
+        } else if (set.contains(KeyCode.UP)) {
             // Move the SatelliteBelt upwards
             satellite1.setMotion(speed, Direction.DOWN);
             satellite2.setMotion(speed, Direction.UP);
             satellite3.setMotion(speed, Direction.RIGHT);
             satellite4.setMotion(speed, Direction.LEFT);
-        }
-
-        if (set.contains(KeyCode.DOWN)) {
+            lastKeyInput = KeyCode.UP;
+        } else if (set.contains(KeyCode.DOWN)) {
             // Move the SatelliteBelt downwards
-            // check if the sattelites are moving into the middle of the screen with atleast 150 pixels of distance
-            satellite1.setKeypressDirection(Direction.UP, speed);
-            satellite2.setKeypressDirection(Direction.DOWN, speed);
-            satellite3.setKeypressDirection(Direction.LEFT, speed);
-            satellite4.setKeypressDirection(Direction.RIGHT, speed);
-        }
+            // check if the satellites are moving into the middle of the screen with atleast 150 pixels of distance
+            satellite1.setKeypressDirection(speed, Direction.UP);
+            satellite2.setKeypressDirection(speed, Direction.DOWN);
+            satellite3.setKeypressDirection(speed, Direction.LEFT);
+            satellite4.setKeypressDirection(speed, Direction.RIGHT);
+            lastKeyInput = KeyCode.DOWN;
+        } else if (set.isEmpty()) {
+            // Stop the satellites from moving directions
+            satellite1.stopMovingDirection();
+            satellite2.stopMovingDirection();
+            satellite3.stopMovingDirection();
+            satellite4.stopMovingDirection();
 
-        if (set.isEmpty()) {
-            satellite1.setMotion(0, satellite1.getDirection());
-            satellite2.setMotion(0, satellite2.getDirection());
-            satellite3.setMotion(0, satellite3.getDirection());
-            satellite4.setMotion(0, satellite4.getDirection());
+            // Check if the last key input was RIGHT or LEFT and then lower the speed of the SatelliteBelt
+            // This must not happen when moving the SatelliteBelt up or down
+            if (lastKeyInput == KeyCode.RIGHT || lastKeyInput == KeyCode.LEFT) {
+                if (getRotationSpeed() > 0) {
+                    setRotationSpeed(getRotationSpeed() - 1);
+                } else {
+                    setRotationSpeed(getRotationSpeed() + 1);
+                }
+            }
 
-            // fix als je de rotatie van UP EN DOWN doet dat hij de belt niet omdraait
-            setRotationSpeedForSatellites(1);
-        }
-    }
-
-    private void setRotationSpeedForSatellites(final float speed) {
-        if (getRotationSpeed() > 0) {
-            setRotationSpeed(getRotationSpeed() - speed);
-        } else {
-            setRotationSpeed(getRotationSpeed() + speed);
+            // Reset the last key input
+            lastKeyInput = null;
         }
     }
 }

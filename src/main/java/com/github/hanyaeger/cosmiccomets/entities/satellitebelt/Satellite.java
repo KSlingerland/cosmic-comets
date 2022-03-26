@@ -84,7 +84,7 @@ public class Satellite extends DynamicSpriteEntity implements Collided, Collider
      *
      * @param direction the direction in which the satellite should move
      */
-    public void setKeypressDirection(Direction direction, float speed) {
+    public void setKeypressDirection(final float speed, final Direction direction) {
         double x = getAnchorLocation().getX();
         double y = getAnchorLocation().getY();
 
@@ -98,5 +98,12 @@ public class Satellite extends DynamicSpriteEntity implements Collided, Collider
         }
 
         setMotion(speed, direction.getValue());
+    }
+
+    /**
+     * Stop the satellite from moving into the given direction in method setKeypressDirection
+     */
+    public void stopMovingDirection() {
+        setMotion(0, getDirection());
     }
 }

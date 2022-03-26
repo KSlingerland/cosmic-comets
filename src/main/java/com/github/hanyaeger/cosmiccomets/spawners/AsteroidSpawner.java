@@ -17,7 +17,7 @@ public class AsteroidSpawner extends EntitySpawner {
      * @param sceneHeight get the scene height of the given window
      */
     public AsteroidSpawner(double sceneWidth, double sceneHeight) {
-        super(10000); //TODO: Implement Random Spawning Rate
+        super(5000); //TODO: Implement Random Spawning Rate
         this.sceneWidth = sceneWidth;
         this.sceneHeight = sceneHeight;
     }
