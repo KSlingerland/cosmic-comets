@@ -92,10 +92,10 @@ public class SatelliteBelt extends DynamicCompositeEntity implements KeyListener
             lastKeyInput = KeyCode.DOWN;
         } else if (set.isEmpty()) {
             // Stop the satellites from moving directions
-            satellite1.stopMovingDirection();
-            satellite2.stopMovingDirection();
-            satellite3.stopMovingDirection();
-            satellite4.stopMovingDirection();
+            satellite1.stopKeypressDirection();
+            satellite2.stopKeypressDirection();
+            satellite3.stopKeypressDirection();
+            satellite4.stopKeypressDirection();
 
             // Check if the last key input was RIGHT or LEFT and then lower the speed of the SatelliteBelt
             // This must not happen when moving the SatelliteBelt up or down

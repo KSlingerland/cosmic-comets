@@ -18,7 +18,7 @@ public class SolarPanel extends Pickup implements SatellitePart {
     }
 
     @Override
-    public void consumePickup(){
+    public void consumePickup() {
         setPart();
         remove();
     }

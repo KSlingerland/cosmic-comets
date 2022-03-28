@@ -9,9 +9,8 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.cosmiccomets.CosmicComets;
 import com.github.hanyaeger.cosmiccomets.entities.Asteroid;
 import com.github.hanyaeger.cosmiccomets.entities.pickups.Pickup;
+import com.github.hanyaeger.cosmiccomets.entities.pickups.satelliteparts.SolarPanel;
 import com.github.hanyaeger.cosmiccomets.entities.text.ScoreText;
-
-import java.util.List;
 
 public class Satellite extends DynamicSpriteEntity implements Collided, Collider {
     private final CosmicComets cosmicComets;
@@ -103,7 +102,7 @@ public class Satellite extends DynamicSpriteEntity implements Collided, Collider
     /**
      * Stop the satellite from moving into the given direction in method setKeypressDirection
      */
-    public void stopMovingDirection() {
+    public void stopKeypressDirection() {
         setMotion(0, getDirection());
     }
 }
